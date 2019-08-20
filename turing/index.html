@@ -1,0 +1,46 @@
+<html>
+<body>
+
+<p id="text"></p>
+
+refresh the page for a new combination, or type here:
+<input type="text" id="myText" value="turing fest">
+<button onclick="setTextButton()">Try it</button>
+
+<script>
+//http://anagrams.mytwotails.com/page/Jumble-Solver-For-Two-Words.aspx
+let words = ["FET RUSTING","FETS TRUING","FETS UNGIRT","FIG ENTRUST","FIG NUTTERS","FIGS NUTTER","FIN GUTTERS","FINS GUTTER","FIST GURNET","FIST URGENT","FIT GURNETS","FITS GURNET","FITS URGENT","FRUG SITTEN","FUG RETINTS","FUG STINTER","FUG TINTERS","FUGS RETINT","FUGS TINTER","FUR SETTING","FUR TESTING","GENT FRUITS","GENTS FRUIT","GENU FRITTS","GENUS FRITT","GIFT TUNERS","GIFT UNREST","GIN TUFTERS","GINS TUFTER","GIRT FUNEST","GNU FITTERS","GNU TITFERS","GNUS FITTER","GNUS TITFER","GRIEF STUNT","GRIT FUNEST","GRUNT FEIST","GUN FITTERS","GUN TITFERS","GUNS FITTER","GUNS TITFER","GUT SNIFTER","IFS GRUTTEN","IFS TURGENT","NEGUS FRITT","RES TUFTING","RUST FETING","RUTS FETING","SER TUFTING","SET TURFING","SIFT GURNET","SIFT URGENT","SIGN TUFTER","SING TUFTER","SNUG FITTER","SNUG TITFER","STRUT FEIGN","STUNG REFIT","STURT FEIGN","SUNG FITTER","SUNG TITFER","TET SURFING","TRET FUSING","TRETS FUNGI","TRIG FUNEST","TRUG FEINTS","TRUG FINEST","TRUG INFEST","TRUGS FEINT","TRUST FEIGN","TUFT REIGNS","TUFT RENIGS","TUFT RESIGN","TUFT SERING","TUFT SIGNER","TUFT SINGER","TUFTS REIGN","TUFTS RENIG","TUG SNIFTER","TUNE GRIFTS","TUNER GIFTS","TUNES GRIFT","TUNG REFITS","TUNG RESIFT","TUNG RIFEST","TUNG SIFTER","TUNG STRIFE","TUNGS REFIT","TURF INGEST","TURF SIGNET","TURF TINGES","TURFS TINGE","TUT FINGERS","TUT FRINGES","TUTS FINGER","TUTS FRINGE","UNSET GRIFT","US FRETTING","grunt fest","git funster","fruit nest"];
+let word = words[Math.floor(Math.random()*words.length)].toLowerCase();
+setText(word);
+
+
+function setTextButton() {
+  var x = document.getElementById("myText").value;
+  setText(x);
+  //alert(99);
+  //return true;
+}
+
+function setText(textStr) {
+	let imgStr = '';
+	let letter = '';
+	for (let i = 0; i < textStr.length; i++){
+		letter=textStr[i];
+		if("turing fest".includes(letter)){
+			if(letter=='t'){
+				letter = textStr[i] + (Math.floor(Math.random() * 2) + 1)
+			}else if(letter==' '){
+				letter='space';
+				imgStr += '<img src="space.png">';
+			}
+			imgStr += '<img src="'+letter+'.png">';
+			imgStr += '<img src="space.png">';
+		}
+	}
+	document.getElementById("text").innerHTML = imgStr;
+}
+</script>
+
+</body>
+</html>
+
