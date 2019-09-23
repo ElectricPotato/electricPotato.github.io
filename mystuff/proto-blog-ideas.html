@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+
+<head>
+    <title>Miron Zadora</title>
+    <meta property="og:site_name" content="Blank Title">
+    <meta property="og:title" content="Miron Zadora">
+    <meta property="og:description"
+        content="">
+    <meta property="og:url" content="http://mironzadora.com/">
+
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAF1SURBVDhPY/wPBAwUACYoTTYYeAPAYfDhzWsGARFRqBACfHjzCiguxvDo/l2G/4ysDIyMQBuZWRhYgNYKSUgxsIGsBxngoMryP6t3E4gJB19v7QYFLpjtZ6X538TM/L+Vre1/a0N1sPjLv2Cp/2AVsa4aYMHvYCEIMJRk/M/AKAflIYCtItf/mduvQnn//4PD4NPnrwz9E1oZjD2zQVyGXVNLGFQiuxhURb6B+TBQEqDLwOHeypDmoQUVAQKQKR56Qv9v/QJ6RZ7z//kHr/9zsnKBTRdi5QDTIHBocd1/JmlbKA8BwAa46wn8P/YcyPh8HeyVnvUXQML/+ZjZwfSvx8eA3hEEs9EB2ABzGYb/u+98AwscO7AXTIMA1IH/mYE0n7zOf1dHh//WVtb/9XT0/h+6/g4sB47Gd69fMvAKiTOwAlUig2fPnjNISUkyPH38BBiN/xh+/f4DFv/75w+DtLwyAxcbMyQdgEXJBAOflCk0gIEBABecI8VRahIgAAAAAElFTkSuQmCC">
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style type="text/css">
+        @font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v13/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
+        }
+
+        .wsite-content-title {
+            text-align: center;
+            font-size: 30px;
+            font-family: Montserrat;
+        }
+
+        .paragraph {
+            text-align: center;
+            color: rgb(129, 129, 129);
+            letter-spacing: 0px;
+            font-family: Montserrat;
+            font-size: 18px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 class="wsite-content-title">Miron Zadora</h2>
+    <div class="paragraph">Proto-blog, everything spewed on one webpage<br>
+    </div>
+    <br>
+    <div class="paragraph"><textarea style="width: 100%;height: 100pc;">
+                                                    Random ideas for projects:
+        CNC crop circles
+            lawn mower robot + solar power + GPS
+
+        Swarm turbine
+            lots of small turbines instead of one big one (impractial becaus of space to power ratio and amount of maintanence needed)
+
+        Closed loop manufacturing
+            Saw a talk about using a sensor to measure the cutting force on a bit while cnc milling to use in a control loop to change the feed speed to keep pressure constant.
+            This could be applied to FDM 3D printing and lasercutting.
+            Lasercutting - settings need to be selected before the cut to make sure the material is not burnt (too hight power) or not cut all the way through (too low power).
+                For materials with non-uniform density like plywood, the speed needs to be turned down to make sure the cut goes all the way through at all points.
+                - A sensor could be placed at the bottom of the laser bed (the laser bed could be one large phtocell) and look for the laser going all the way through, adjusting the feedrate in response to the cutting time
+            FDM 3D printing - a sensor for the pressure on the fillament, could also be done by mesuring the current of the extruder motor. This would deal better with different viscosities of different materials at different temperatures, with different nozzle sizes.
+                -With the output of the control loop it would be easy to tell if a nozzle is clogged or feeder is jammed (how it would tell the difference I dont know).
+                -Could maybe print with a partialy clogged nozzle (but would have to first have some way of also determining extrusion width, and pretend to print with a smaller nozzle)
+
+        Automatic Cold pull for FDM 3D printing
+            -a cold pull is a procedure to unclog a printer nozzle
+            -consists of heating the nozzle, pushing fillament through it, cooling the nozzle, and pulling the fillament out with all the debris, then cutting off the tip of the fillament containg the debris
+            -the prusa MMU2 already can do these things automatically, it needs some changes to make it work.
+            -Forces are much larger, so a larger contact between fillament and feeder gears needed.
+            -tip of fillament wont fit through ptfe tube once pulled out from nozzle, bigger tube needed.
+
+        Minecraft digital manufacturing
+            -Baritone is a minecraft pathfinding bot, upon which other things can be built
+            -one exciting use of it is to automate building
+
+            other things it could do, nobody has programmed yet:
+            - restone and noteblock building (doesnt yet have the features for placing blocks in the right setting and orientation)
+            - using a query instead of a schematic to do tasks, like:
+                - lighting up areas with torches (area might be too large to do as a schematic)
+                - terraforming e.g. cover ground with slabs for spawnproofing
+                - ocean temple clearing
+            - planing an efficent strategy to build something, similar to CNC GCode
+                - could also simulate lighting and make sure there are no areas where mobs can spawn (unlight and some distance away from the player) at any time during the build
+
+            - practical things like auto eating, repairng tools, fighting off mobs
+                - This would be easier with an API for python or such (straightforward, but someone just needs to go and do it)
+
+
+            </textarea></div>
+</body>
+</html>
