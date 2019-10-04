@@ -1,0 +1,39 @@
+<html>
+<body>
+
+<p id="text"></p>
+https://www.reddit.com/r/ProgrammerHumor/comments/bhg2qw/parsing_oreos/
+
+input:
+<input type="text" id="myText" value="orereo">
+<button onclick="setTextButton()">Try it</button>
+
+<script>
+setText(word);
+
+
+function setTextButton() {
+  var x = document.getElementById("myText").value;
+  setText(x);
+  //alert(99);
+  //return true;
+}
+
+function setText(textStr) {
+	let imgStr = '';
+	let letter = '';
+	for (let i = 0; i < textStr.length; i++){
+		letter=textStr[i];
+		if("or&".includes(letter)){
+			//if(letter=='&'){letter='space';}
+			imgStr += '<img src="'+letter+'.png">';
+			imgStr += '<br>';
+		}
+	}
+	document.getElementById("text").innerHTML = imgStr;
+}
+</script>
+
+</body>
+</html>
+
