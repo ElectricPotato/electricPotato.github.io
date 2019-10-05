@@ -2,36 +2,101 @@
 <body>
 
 <p id="text"></p>
-https://www.reddit.com/r/ProgrammerHumor/comments/bhg2qw/parsing_oreos/
 
-input:
-<input type="text" id="myText" value="orereo">
-<button onclick="setTextButton()">Try it</button>
 
+Type name or use the buttons to make your custom oreo:
+<input type="text" id="myText" value="OREOREO" size="1000"><br>
+<button onclick="setTextButton()">Submit</button>
+<button onclick="addTextButton('O')">Add O</button>
+<button onclick="addTextButton('RE')">Add RE</button>
+<button onclick="addTextButton('&')">Add &</button>
+<button onclick="clearText()">Clear</button>
+<br>
+<img src="oreo_original.jpg" style="position: relative;top: 0px;left: 200px;">
+<p>Original: https://www.reddit.com/r/ProgrammerHumor/comments/bhg2qw/parsing_oreos/</p>
 <script>
-setText(word);
+/*
 
+
+oreo o&reo o&o oreoreo
+rerererere ooooo oreoo oreorerereore
+oreoreore rereo reore orererererererereo
+ooorererererereooo orererereooooooooo
+
+"-"=filling, "<"=top cookie, ">"=bottom cookie
+
+----
+<<<>>
+<->>
+<->--->-
+<->-<-
+-->
+-<-
+<----------->
+<<<----->>>
+<-<<<<>>>>>
+
+simple rule, not entierly accurate but good enoigh: if past middle of string use o2, otherwise, o
+*/
+
+//absolutely abysmal javascript, dont look at it too hard
+
+function clearText() {
+  document.getElementById("myText").value="";
+  setText("");
+}
 
 function setTextButton() {
   var x = document.getElementById("myText").value;
   setText(x);
-  //alert(99);
-  //return true;
+}
+
+function addTextButton(addStr) {
+  document.getElementById("myText").value=addStr+document.getElementById("myText").value;
+  setText(document.getElementById("myText").value);
 }
 
 function setText(textStr) {
 	let imgStr = '';
 	let letter = '';
+	let filteredStr = '';
+	textStr=textStr.toLowerCase();
 	for (let i = 0; i < textStr.length; i++){
 		letter=textStr[i];
 		if("or&".includes(letter)){
-			//if(letter=='&'){letter='space';}
-			imgStr += '<img src="'+letter+'.png">';
-			imgStr += '<br>';
+			filteredStr+=letter;
 		}
+	}
+	let ypos=100;
+	for (let i = 0; i < filteredStr.length; i++){
+		
+		letter=filteredStr[i];
+		if(letter!='&'){
+			if(letter=='o'){
+				if(i*2>filteredStr.length){
+					letter='o2';
+				}
+			}
+			xpos=Math.floor(Math.random() * 4) +10;
+			if(letter=='r'){letter='re';xpos+=8;}
+			style="position: absolute;top: "+ypos+"px;left: "+xpos+"px; z-index:"+(1-i)+";";
+			
+			imgStr += '<img src="'+letter+'.png" style="'+style+'">';
+		}
+		if(letter=='&'){
+			ypos+=60;//& spacing
+		}else if(letter=='o'){
+			ypos+=25;//o spacing
+		}else if(letter=='o2'){
+			ypos+=20;//o2 spacing
+		}else if(letter=='re'){
+			ypos+=6;//re spacing
+		}		
 	}
 	document.getElementById("text").innerHTML = imgStr;
 }
+
+setTextButton();
 </script>
 
 </body>
