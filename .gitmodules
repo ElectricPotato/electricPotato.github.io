@@ -1,0 +1,3 @@
+[submodule "fpga-fabric-grid-editor"]
+	path = fpga-fabric-grid-editor
+	url = https://github.com/ElectricPotato/fpga-fabric-grid-editor.git
